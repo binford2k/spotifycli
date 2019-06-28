@@ -57,6 +57,7 @@ func prerun(cmd *cobra.Command, args []string) {
 		redirectURI,
 		spotify.ScopeUserReadPrivate,
 		spotify.ScopeUserReadCurrentlyPlaying,
+		spotify.ScopePlaylistReadCollaborative,
 		spotify.ScopePlaylistModifyPrivate,
 		spotify.ScopePlaylistModifyPublic)
 	auth.SetAuthInfo(os.Getenv("SPOTIFY_ID"), os.Getenv("SPOTIFY_SECRET"))
