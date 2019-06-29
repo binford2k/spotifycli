@@ -166,14 +166,15 @@ func displayTrack(track *spotify.FullTrack) error {
 		track.Artists[0].Name,
 		(time.Duration(track.Duration) * time.Millisecond).Truncate(time.Second).String(),
 		strconv.Itoa(track.Popularity),
-		track.Endpoint,
+		strconv.FormatBool(track.Explicit),
+		track.PreviewURL,
 	}
 	row := make([]interface{}, len(item))
 	for i, d := range item {
 		row[i] = d
 	}
 	data = append(data, row)
-	printSimple([]string{"ID", "Name", "Album", "Artist", "Duration", "Popularity", "Endpoint"}, data)
+	printSimple([]string{"ID", "Name", "Album", "Artist", "Duration", "Popularity", "Explicit", "Preview"}, data)
 	return nil
 }
 
